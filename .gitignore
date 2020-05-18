@@ -1,2 +1,5 @@
 # Cache files
 __pycache__
+
+# MySQL CNF
+resume.cnf
