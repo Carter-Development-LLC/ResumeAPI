@@ -3,3 +3,6 @@ __pycache__
 
 # MySQL CNF
 resume.cnf
+
+# Dev Environment Settings
+env.py

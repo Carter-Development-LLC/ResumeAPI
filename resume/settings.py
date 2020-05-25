@@ -23,9 +23,18 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '_mxrr&(4f2lc)&+(+x-(5+&u#xdntq_&xr$#=yd&*$5vs+d6yb'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
+try:
+    from env import ENV_DEBUG
+    DEBUG = ENV_DEBUG
+except ImportError:
+    pass
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'api.resume.beta.briancarter.dev',
+    'localhost',
+    '127.0.0.1',
+]
 
 
 # Application definition
@@ -124,6 +133,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 
 # Django REST Framework
