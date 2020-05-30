@@ -3,6 +3,7 @@ from uuid import uuid4
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 from tinymce.models import HTMLField
+from bs4 import BeautifulSoup
 
 
 def max_value_validator_current_year(value):
@@ -45,5 +46,14 @@ class Job(models.Model):
 
     def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
         self.description = "".join(self.description.splitlines())
+
+        soup = BeautifulSoup(self.description)
+        links = soup.find_all('a')
+        for link in links:
+            link['class'] = ['external-link']
+            link['rel'] = ['noopener', 'noreferrer']
+
+        self.description = str(soup)
+
         super().save(force_insert=force_insert, force_update=force_update,
                      using=using, update_fields=update_fields)
