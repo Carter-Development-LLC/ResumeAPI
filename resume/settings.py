@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'tinymce',
+    'about.apps.AboutConfig',
     'education.apps.EducationConfig',
     'work.apps.WorkConfig',
 ]
