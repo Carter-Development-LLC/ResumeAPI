@@ -2,14 +2,17 @@ from rest_framework.generics import ListAPIView, RetrieveAPIView
 from education.models import Course, School
 from education.serializers import CourseSerializer, SchoolSerializer
 
+
 class SchoolList(ListAPIView):
     queryset = School.objects.all().order_by('name')
     serializer_class = SchoolSerializer
+
 
 class SchoolDetail(RetrieveAPIView):
     queryset = School.objects
     serializer_class = SchoolSerializer
     lookup_url_kwarg = 'school_id'
+
 
 class CourseList(ListAPIView):
     queryset = Course.objects.all().order_by('-year', 'semester', 'stub')
@@ -24,6 +27,7 @@ class CourseList(ListAPIView):
             queryset = queryset.filter(featured=True)
 
         return queryset.filter(school_id=school_id)
+
 
 class CourseDetail(RetrieveAPIView):
     queryset = Course.objects
