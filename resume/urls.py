@@ -19,6 +19,7 @@ from resume.views import api_root
 
 urlpatterns = [
     path('', api_root),
+    path('about/', include('about.urls')),
     path('admin/', admin.site.urls),
     path('education/', include('education.urls')),
     path('work/', include('work.urls')),
