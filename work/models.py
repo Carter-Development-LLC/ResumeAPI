@@ -12,18 +12,18 @@ def max_value_validator_current_year(value):
 
 class Job(models.Model):
     class Month(models.IntegerChoices):
-        JANUARY = 1, 'January'
-        FEBRUARY = 2, 'February'
-        MARCH = 3, 'March'
-        APRIL = 4, 'April'
+        JANUARY = 1, 'Jan'
+        FEBRUARY = 2, 'Feb'
+        MARCH = 3, 'Mar'
+        APRIL = 4, 'Apr'
         MAY = 5, 'May'
-        JUNE = 6, 'June'
-        JULY = 7, 'July'
-        AUGUST = 8, 'August'
-        SEPTEMBER = 9, 'September'
-        OCTOBER = 10, 'October'
-        NOVEMBER = 11, 'November'
-        DECEMBER = 12, 'December'
+        JUNE = 6, 'Jun'
+        JULY = 7, 'Jul'
+        AUGUST = 8, 'Aug'
+        SEPTEMBER = 9, 'Sep'
+        OCTOBER = 10, 'Oct'
+        NOVEMBER = 11, 'Nov'
+        DECEMBER = 12, 'Dec'
 
     id = models.UUIDField(default=uuid4, editable=False,
                           primary_key=True, unique=True)
